@@ -1,0 +1,7 @@
+# Step 1: LoRA SFT of Qwen2.5-VL-3B-Instruct on the procedural tasks (response-only loss).
+# model_path: a local directory (offline) or a hub id (downloads ~7 GB on first use; you must allow that).
+model_path: Qwen/Qwen2.5-VL-3B-Instruct
+out_dir: runs/sft
+lora: {r: 16, alpha: 32, dropout: 0.0}
+data: {n_train: 20000, n_eval: 300}
+train: {steps: 1500, batch: 8, accum: 2, lr: 1.0e-4, warmup: 30, clip: 1.0, wd: 0.0, log_every: 25, eval_every: 250, seed: 0}
